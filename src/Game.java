@@ -25,11 +25,11 @@ public class Game {
 
             System.out.println("Угадайте слово: " + guessedWord);
 
-            enterChar();    // ввод буквы
+            enterLetter();    // ввод буквы
 
-            addChar();      // добавление буквы при правильном вводе
+            addLetter();      // добавление буквы при правильном вводе
 
-            checkChar();    // проверка буквы на повторный ввод и отсутствие
+            checkLetter();    // проверка буквы на повторный ввод и отсутствие
 
             System.out.print("Использованные неправильные буквы: " + wrongLetters);
             System.out.println("\n-----------------------------------------");
@@ -42,7 +42,7 @@ public class Game {
         }
     }
 
-    private static void enterChar() {
+    private static void enterLetter() {
         System.out.print("Введите букву: ");
         userLetter = scanner.next().toUpperCase().charAt(0);
         while (!isRussianLetter(userLetter)) {
@@ -51,7 +51,7 @@ public class Game {
         }
     }
 
-    private static void addChar() {
+    private static void addLetter() {
         for (int i = 0; i < secretWord.length(); i++) {
             if (secretWord.charAt(i) == userLetter) {
                 guessedWord.setCharAt(i, userLetter);
@@ -61,7 +61,7 @@ public class Game {
         }
     }
 
-    private static void checkChar() {
+    private static void checkLetter() {
         if (!isLetterFound) {
             if (wrongLetters.toString().contains(String.valueOf(userLetter))) {
                 System.out.println("Ты уже вводил такую букву. Введи другую!");
